@@ -68,13 +68,19 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:gravity="center">
-            <Button android:id="@+id/add"
+
+            <Button
+                android:id="@+id/add"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="calculate"
                 android:text="Add" />
-            <Button android:id="@+id/subtract"
+
+            <Button
+                android:id="@+id/subtract"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="calculate"
                 android:text="Subtract" />
         </LinearLayout>
         <LinearLayout
@@ -82,17 +88,26 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:gravity="center">
-            <Button android:id="@+id/multiply"
+
+            <Button
+                android:id="@+id/multiply"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="calculate"
                 android:text="Multiply" />
-            <Button android:id="@+id/divide"
+
+            <Button
+                android:id="@+id/divide"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="calculate"
                 android:text="Divide" />
-            <Button android:id="@+id/factorial"
+
+            <Button
+                android:id="@+id/factorial"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="calculate"
                 android:text="Factorial" />
         </LinearLayout>
     </LinearLayout>
