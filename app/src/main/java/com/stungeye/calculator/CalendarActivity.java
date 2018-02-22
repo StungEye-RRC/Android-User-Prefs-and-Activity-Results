@@ -22,15 +22,12 @@ public class CalendarActivity extends AppCompatActivity implements DatePickerDia
     final String PREFS_AGE = "pref_age";
     final String PREFS_NAME = "pref_name";
     final int UNSPECIFIED_AGE = -1;
-    public SharedPreferences prefs;
 
+    public SharedPreferences prefs;
     public EditText ageField;
     public EditText nameField;
     public EditText dateField;
-
     public Calendar birthDate;
-
-    private DatePickerDialog picker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,8 +43,8 @@ public class CalendarActivity extends AppCompatActivity implements DatePickerDia
 
         findViewById(R.id.date).setOnFocusChangeListener(new View.OnFocusChangeListener() {
              @Override
-             public void onFocusChange(View view, boolean b) {
-                if (b) {
+             public void onFocusChange(View view, boolean inFocus) {
+                if (inFocus) {
                     DatePickerDialog picker = new DatePickerDialog(CalendarActivity.this, CalendarActivity.this, birthDate.get(Calendar.YEAR), birthDate.get(Calendar.MONTH), birthDate.get(Calendar.DAY_OF_MONTH));
                     picker.show();
                 }
