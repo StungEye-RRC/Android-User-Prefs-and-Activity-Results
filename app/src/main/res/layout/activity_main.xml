@@ -28,9 +28,12 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:inputType="number" />
-        <Button android:id="@+id/next"
+
+        <Button
+            android:id="@+id/next"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="startCalendar"
             android:text="Start Other Activity" />
 
         <!-- EditTexts for calculator -->
