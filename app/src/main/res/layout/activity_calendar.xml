@@ -21,11 +21,12 @@
             android:layout_height="wrap_content"
             android:hint="Age"
             android:inputType="number" />
+
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:gravity="left">
+            android:gravity="left"
+            android:orientation="horizontal">
 
             <Button
                 android:id="@+id/save"
@@ -41,5 +42,13 @@
                 android:onClick="loadPrefs"
                 android:text="Load" />
         </LinearLayout>
+
+        <EditText
+            android:id="@+id/date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Birthday"
+            android:inputType="date" />
     </LinearLayout>
 </ScrollView>

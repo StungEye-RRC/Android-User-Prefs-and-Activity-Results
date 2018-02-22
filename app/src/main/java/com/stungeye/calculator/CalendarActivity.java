@@ -1,5 +1,6 @@
 package com.stungeye.calculator;
 
+import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -7,10 +8,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class CalendarActivity extends AppCompatActivity {
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
+
+public class CalendarActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
 
     final String preferenceIdentifier = "com.stungeye.calculator";
     final String PREFS_AGE = "pref_age";
@@ -20,6 +26,11 @@ public class CalendarActivity extends AppCompatActivity {
 
     public EditText ageField;
     public EditText nameField;
+    public EditText dateField;
+
+    public Calendar birthDate;
+
+    private DatePickerDialog picker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +40,35 @@ public class CalendarActivity extends AppCompatActivity {
 
         ageField = findViewById(R.id.age);
         nameField = findViewById(R.id.name);
+        dateField = findViewById(R.id.date);
+
+        birthDate = Calendar.getInstance();
+
+        findViewById(R.id.date).setOnFocusChangeListener(new View.OnFocusChangeListener() {
+             @Override
+             public void onFocusChange(View view, boolean b) {
+                if (b) {
+                    DatePickerDialog picker = new DatePickerDialog(CalendarActivity.this, CalendarActivity.this, birthDate.get(Calendar.YEAR), birthDate.get(Calendar.MONTH), birthDate.get(Calendar.DAY_OF_MONTH));
+                    picker.show();
+                }
+             }
+         });
+    }
+
+    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+        SimpleDateFormat dateFormatter = new SimpleDateFormat("dd-MM-YYYY");
+        Calendar today = Calendar.getInstance();
+        birthDate.set(year, monthOfYear, dayOfMonth);
+
+        int age = today.get(Calendar.YEAR) - birthDate.get(Calendar.YEAR);
+
+        if (today.get(Calendar.DAY_OF_YEAR) < birthDate.get(Calendar.DAY_OF_YEAR)) {
+            age--;
+        }
+
+        dateField.setText(dateFormatter.format(birthDate.getTime()));
+        ageField.setText(""+age);
+        ageField.requestFocus();
     }
 
     /* Make the "up/home" button act like the back button

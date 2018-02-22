@@ -11,7 +11,7 @@ public class MainActivity extends AppCompatActivity {
 
     static final int NAME_AGE_REQUEST = 0;
     static final String EXTRA_AGE = "extra_age";
-    static final String EXTRA_NAME = "extra_name";
+        static final String EXTRA_NAME = "extra_name";
 
 
     @Override
